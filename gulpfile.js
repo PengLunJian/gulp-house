@@ -63,7 +63,7 @@ gulp.task('clean', function () {
 gulp.task('build_less', function () {
     return gulp.src(path.SRC.LESS)
         .pipe(less())
-        .pipe(assetRev())
+        // .pipe(assetRev())
         .pipe(gulp.dest(path.BUILD.CSS));
 });
 
