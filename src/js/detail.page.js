@@ -45,6 +45,7 @@ Carousel.prototype.clickCarouselItem = function () {
         var CAROUSEL_ACTIVE = _this.CAROUSEL_ACTIVE.substring(1);
         $(_this.CAROUSEL_ITEM).removeClass(CAROUSEL_ACTIVE);
         $(this).addClass(CAROUSEL_ACTIVE);
+        _this.changeCarousel();
     });
     return this;
 }
@@ -62,6 +63,7 @@ Carousel.prototype.clickCarouselPrev = function () {
         $(_this.CAROUSEL_ITEM).removeClass(CAROUSEL_ACTIVE);
         $(_this.CAROUSEL_ITEM).eq(_this.CAROUSEL_INDEX).addClass(CAROUSEL_ACTIVE);
         _this.carouselAnimate(false);
+        _this.changeCarousel();
     });
     return this;
 }
@@ -80,6 +82,7 @@ Carousel.prototype.clickCarouselNext = function () {
         $(_this.CAROUSEL_ITEM).removeClass(CAROUSEL_ACTIVE);
         $(_this.CAROUSEL_ITEM).eq(_this.CAROUSEL_INDEX).addClass(CAROUSEL_ACTIVE);
         _this.carouselAnimate(true);
+        _this.changeCarousel();
     });
     return this;
 }
@@ -95,7 +98,8 @@ Carousel.prototype.carouselAnimate = function (params) {
     var parentWidth = $(this.CAROUSEL_BLOCK).parent().outerWidth();
     if ((childWidth - parentWidth) >= itemWidth) {
         if (params) {
-            itemWidth = Math.abs(iTranslatX) >= childWidth - parentWidth ? 0 : -itemWidth;
+            var targetValue = childWidth - parentWidth - 12;
+            itemWidth = Math.abs(iTranslatX) >= targetValue ? 0 : -itemWidth;
         } else {
             itemWidth = iTranslatX >= 0 ? 0 : itemWidth;
         }
@@ -119,6 +123,15 @@ Carousel.prototype.getTranslateX = function () {
         translateX = parseInt(TEMP_STYLE.substring(FIRST_INDEX, LAST_INDEX).trim());
     }
     return translateX;
+}
+/**
+ *
+ * @returns {Carousel}
+ */
+Carousel.prototype.changeCarousel = function () {
+    var src = $(this.CAROUSEL_ITEM + this.CAROUSEL_ACTIVE).children().attr('src');
+    $(this.CAROUSEL_MAIN).attr('src', src);
+    return this;
 }
 /**
  *

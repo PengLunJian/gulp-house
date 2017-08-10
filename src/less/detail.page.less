@@ -27,6 +27,17 @@
     .carouse-main {
       width: 100%;
       height: 100%;
+      img {
+        -webkit-transition: all 300ms ease-out;
+        -moz-transition: all 300ms ease-out;
+        -ms-transition: all 300ms ease-out;
+        -o-transition: all 300ms ease-out;
+        transition: all 300ms ease-out;
+        &.blur {
+          filter: blur(10px);
+          -webkit-filter: blur(10px);
+        }
+      }
     }
     .carouse-page {
       width: 100%;
