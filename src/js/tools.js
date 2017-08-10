@@ -1,18 +1,28 @@
+/**
+ *
+ * @constructor
+ */
 function Tools() {
     var arguments = arguments.length != 0 ? arguments[0] : arguments;
     this.TAB_BTN = arguments['TAB_BTN'] ? arguments['TAB_BTN'] : 'tab-btn';
-    this.STATUS_BAR = arguments['STATUS_BAR'] ? arguments['STATUS_BAR'] : '.status-bar';
-    this.STATUS_BAR_WIDTH = arguments['STATUS_BAR_WIDTH'] ? arguments['STATUS_BAR_WIDTH'] : 170;
+    this.TAB_BAR = arguments['TAB_BAR'] ? arguments['TAB_BAR'] : '.tab-bar';
+    this.TAB_BAR_WIDTH = arguments['TAB_BAR_WIDTH'] ? arguments['TAB_BAR_WIDTH'] : 170;
     this.TARGET_ELEMENT = arguments['TARGET_ELEMENT'] ? arguments['TARGET_ELEMENT'] : '.target-element';
 
     this.init();
 }
-
+/**
+ *
+ * @returns {Tools}
+ */
 Tools.prototype.init = function () {
     this.clickBtnTab();
     return this;
 }
-
+/**
+ *
+ * @returns {Tools}
+ */
 Tools.prototype.clickBtnTab = function () {
     var _this = this;
     $(this.TAB_BTN).on("click", function () {
@@ -24,7 +34,11 @@ Tools.prototype.clickBtnTab = function () {
     });
     return this;
 }
-
+/**
+ *
+ * @param value
+ * @returns {string}
+ */
 Tools.prototype.getTranslateX = function (value) {
     var translateX = '-webkit-transform: translateX(' + value + 'px);'
         + '-moz-transform: translateX(' + value + 'px);'
@@ -33,14 +47,22 @@ Tools.prototype.getTranslateX = function (value) {
         + 'transform: translateX(' + value + 'px);';
     return translateX;
 }
-
+/**
+ *
+ * @param params
+ * @returns {Tools}
+ */
 Tools.prototype.setStatusBarTranslateX = function (params) {
-    var value = params * this.STATUS_BAR_WIDTH;
+    var value = params * this.TAB_BAR_WIDTH;
     var translateX = this.getTranslateX(value);
-    $(this.STATUS_BAR).attr("style", translateX);
+    $(this.TAB_BAR).attr("style", translateX);
     return this;
 }
-
+/**
+ *
+ * @param params
+ * @returns {Tools}
+ */
 Tools.prototype.setTargetElementTranslateX = function (params) {
     var length = $(this.TAB_BTN).length;
     var targetWidth = $(this.TARGET_ELEMENT).outerWidth() / length;

@@ -1,0 +1,36 @@
+@import "variable";
+
+#main {
+  height: 2000px;
+}
+
+@keyframes mvslideAnime {
+  0% {
+    -webkit-transform: translate(0px);
+    transform: translate(0px);
+  }
+  100% {
+    -webkit-transform: translate(-100px);
+    transform: translate(-100px);
+  }
+}
+
+@-webkit-keyframes mvslideAnime {
+  0% {
+    -webkit-transform: translate(0px);
+    transform: translate(0px);
+  }
+  100% {
+    -webkit-transform: translate(-100px);
+    transform: translate(-100px);
+  }
+}
+
+@media screen and(min-width: 1400px) {
+  .banners {
+    height: 560px !important;
+    .banner-info {
+      padding: 200px 0px !important;
+    }
+  }
+}

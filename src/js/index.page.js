@@ -9,7 +9,7 @@ function SliderBanner() {
     this.sliderTime = arguments['sliderTime'] ? arguments['sliderTime'] : 5;
     this.sliderIndex = arguments['sliderIndex'] ? arguments['sliderIndex'] : 0;
     this.sliderTimer = arguments['sliderTimer'] ? arguments['sliderTimer'] : null;
-    this.sliderElement = arguments['sliderElement'] ? arguments['sliderElement'] : '.slider-item';
+    this.sliderElement = arguments['sliderElement'] ? arguments['sliderElement'] : '.banner-slider';
 
     this.sliderChange = arguments['sliderChange'] ? arguments['sliderChange'] : function () {
 
@@ -79,13 +79,17 @@ HomePage.prototype.init = function () {
             console.log('slider changed success!');
         }
     });
-
+    /**
+     *
+     * @type {Tools}
+     */
     var tools = new Tools({
-        TAB_BTN: '.project-button',
-        TARGET_ELEMENT: '.project-inside'
+        TAB_BTN: '.tab-btn',
+        TAB_BAR: '.tab-bar',
+        TARGET_ELEMENT: '.project-block'
     });
 
-    this.scrollMove();
+    // this.scrollMove();
 
     return this;
 }

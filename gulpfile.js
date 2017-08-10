@@ -184,7 +184,7 @@ gulp.task('font', function () {
     return gulp.src(path.SRC.FONT)
         .pipe(gulp.dest(path.BUILD.FONT))
         .pipe(gulp.dest(path.DIST.FONT));
-})
+});
 
 gulp.task('rev_font', function () {
     return gulp.src(path.SRC.FONT)
@@ -198,7 +198,7 @@ gulp.task('iconfont', function () {
     return gulp.src(path.SRC.ICONFONT)
         .pipe(gulp.dest(path.BUILD.ICONFONT))
         .pipe(gulp.dest(path.DIST.ICONFONT));
-})
+});
 
 gulp.task('rev_iconfont', function () {
     return gulp.src(path.SRC.ICONFONT)
@@ -213,11 +213,11 @@ gulp.task('test', function (done) {
         'build_less', 'build_js',
         'build_html', 'build_rev_css',
         'build_rev_js', 'build_rev_html',
-        'build_replace_html', 'min_image',
-        'rev_image', 'font', 'rev_font',
-        'iconfont', 'rev_iconfont',
+        'build_replace_html', 'font',
+        // 'rev_image', 'min_image',
+        'rev_font', 'iconfont', 'rev_iconfont',
         done);
-})
+});
 
 gulp.task('dist', function (done) {
     runSequence(
@@ -228,7 +228,7 @@ gulp.task('dist', function (done) {
         'rev_image', 'font', 'rev_font',
         'iconfont', 'rev_iconfont',
         done);
-})
+});
 
 gulp.task('watch', function () {
     gulp.watch([
