@@ -213,9 +213,9 @@ gulp.task('test', function (done) {
         'build_less', 'build_js',
         'build_html', 'build_rev_css',
         'build_rev_js', 'build_rev_html',
-        'build_replace_html', 'font',
-        // 'rev_image', 'min_image',
-        'rev_font', 'iconfont', 'rev_iconfont',
+        'build_replace_html','font', 'rev_font',
+        // 'rev_image',  'min_image',
+        'iconfont', 'rev_iconfont',
         done);
 });
 
@@ -250,6 +250,6 @@ gulp.task('build', ['dist'], function () {
     console.log("BUILD SUCCESS!");
 });
 
-gulp.task('default', ['test', 'dist'], function () {
+gulp.task('default', ['test'], function () {
     console.log("DEFAULT SUCCESS!");
 });
