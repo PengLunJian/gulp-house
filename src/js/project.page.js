@@ -9,7 +9,7 @@ function SliderBanner() {
     this.sliderTime = arguments['sliderTime'] ? arguments['sliderTime'] : 5;
     this.sliderIndex = arguments['sliderIndex'] ? arguments['sliderIndex'] : 0;
     this.sliderTimer = arguments['sliderTimer'] ? arguments['sliderTimer'] : null;
-    this.sliderElement = arguments['sliderElement'] ? arguments['sliderElement'] : '.slider-item';
+    this.sliderElement = arguments['sliderElement'] ? arguments['sliderElement'] : '.banner-slider';
 
     this.sliderChange = arguments['sliderChange'] ? arguments['sliderChange'] : function () {
 
@@ -56,7 +56,7 @@ SliderBanner.prototype.stopMove = function () {
  *
  * @constructor
  */
-function HomePage() {
+function ProjectPage() {
     this.HEADER = arguments['HEADER'] ? arguments['HEADER'] : '#header';
     this.HEADER_ALPHA = arguments['HEADER_ALPHA'] ? arguments['HEADER_ALPHA'] : 0.5;
     this.SLIDER_CONTAINER = arguments['SLIDER_CONTAINER'] ? arguments['SLIDER_CONTAINER'] : '.slider-container';
@@ -66,7 +66,7 @@ function HomePage() {
  *
  * @returns {HomePage}
  */
-HomePage.prototype.init = function () {
+ProjectPage.prototype.init = function () {
     /**
      * BEGIN 实例化轮播图对象
      * Author:PengLunJian
@@ -79,13 +79,21 @@ HomePage.prototype.init = function () {
             console.log('slider changed success!');
         }
     });
-
+    /**
+     *
+     * @type {Tools}
+     */
     var tools = new Tools({
-        TAB_BTN: '.project-button',
-        TARGET_ELEMENT: '.project-inside'
+        TAB_BTN: '.tab-btn',
+        TAB_BAR: '.tab-bar',
+        TAB_BAR_WIDTH: 100,
+        // TARGET_ELEMENT: '.room-block',
+        TAB_CHANGED: function () {
+            console.log('success');
+        }
     });
 
-    this.scrollMove();
+    // this.scrollMove();
 
     return this;
 }
@@ -93,7 +101,7 @@ HomePage.prototype.init = function () {
  *
  * @returns {HomePage}
  */
-HomePage.prototype.scrollMove = function () {
+ProjectPage.prototype.scrollMove = function () {
     var _this = this;
     $(window).on("scroll", function () {
         var scrollTop = $(this).scrollTop();
@@ -108,4 +116,4 @@ HomePage.prototype.scrollMove = function () {
  *
  * @type {HomePage}
  */
-var hp = new HomePage();
+var pp = new ProjectPage();
