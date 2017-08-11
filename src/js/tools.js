@@ -8,6 +8,9 @@ function Tools() {
     this.TAB_BAR = arguments['TAB_BAR'] ? arguments['TAB_BAR'] : '.tab-bar';
     this.TAB_BAR_WIDTH = arguments['TAB_BAR_WIDTH'] ? arguments['TAB_BAR_WIDTH'] : 170;
     this.TARGET_ELEMENT = arguments['TARGET_ELEMENT'] ? arguments['TARGET_ELEMENT'] : '.target-element';
+    this.TAB_CHANGED = arguments['TAB_CHANGED'] ? arguments['TAB_CHANGED'] : function () {
+
+    };
 
     this.init();
 }
@@ -31,6 +34,7 @@ Tools.prototype.clickBtnTab = function () {
         $(this).addClass("active");
         _this.setStatusBarTranslateX(params);
         _this.setTargetElementTranslateX(params);
+        if ('function' == typeof _this.TAB_CHANGED) _this.TAB_CHANGED();
     });
     return this;
 }

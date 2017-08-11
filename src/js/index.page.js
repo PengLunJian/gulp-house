@@ -10,7 +10,6 @@ function SliderBanner() {
     this.sliderIndex = arguments['sliderIndex'] ? arguments['sliderIndex'] : 0;
     this.sliderTimer = arguments['sliderTimer'] ? arguments['sliderTimer'] : null;
     this.sliderElement = arguments['sliderElement'] ? arguments['sliderElement'] : '.banner-slider';
-
     this.sliderChange = arguments['sliderChange'] ? arguments['sliderChange'] : function () {
 
     }
@@ -86,7 +85,10 @@ HomePage.prototype.init = function () {
     var tools = new Tools({
         TAB_BTN: '.tab-btn',
         TAB_BAR: '.tab-bar',
-        TARGET_ELEMENT: '.project-block'
+        TARGET_ELEMENT: '.project-block',
+        TAB_CHANGED: function () {
+            console.log('success');
+        }
     });
 
     // this.scrollMove();
