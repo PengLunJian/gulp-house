@@ -129,8 +129,12 @@ Carousel.prototype.getTranslateX = function () {
  * @returns {Carousel}
  */
 Carousel.prototype.changeCarousel = function () {
+    var CAROUSEL_ACTIVE = this.CAROUSEL_ACTIVE.substring(1);
+    var TEMP_CAROUSEL = $(this.CAROUSEL_MAIN).not(this.CAROUSEL_ACTIVE);
     var src = $(this.CAROUSEL_ITEM + this.CAROUSEL_ACTIVE).children().attr('src');
-    $(this.CAROUSEL_MAIN).attr('src', src);
+    $(this.CAROUSEL_MAIN).removeClass(CAROUSEL_ACTIVE);
+    TEMP_CAROUSEL.attr('src', src);
+    TEMP_CAROUSEL.addClass(CAROUSEL_ACTIVE);
     return this;
 }
 /**
@@ -152,6 +156,22 @@ function DetailPage() {
  * @returns {HomePage}
  */
 DetailPage.prototype.init = function () {
+    this.loadBaiduMap();
+    return this;
+}
+/**
+ *
+ * @returns {DetailPage}
+ */
+DetailPage.prototype.loadBaiduMap = function () {
+    var lng = 121.404351;
+    var lat = 31.167261;
+    var map = new BMap.Map("BMap");
+    map.centerAndZoom(new BMap.Point(lng, lat), 11);
+    var local = new BMap.LocalSearch(map, {
+        renderOptions: {map: map, panel: "r-result"}
+    });
+    local.search("谷粒软件（徐汇区古美路1515号凤凰大厦19号楼1101室）");
 
     return this;
 }

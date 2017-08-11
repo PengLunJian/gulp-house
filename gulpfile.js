@@ -250,6 +250,6 @@ gulp.task('build', ['dist'], function () {
     console.log("BUILD SUCCESS!");
 });
 
-gulp.task('default', ['test', 'dist'], function () {
+gulp.task('default', ['test'], function () {
     console.log("DEFAULT SUCCESS!");
 });
