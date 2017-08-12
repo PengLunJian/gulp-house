@@ -118,45 +118,56 @@ HomePage.prototype.scrollMove = function () {
  */
 HomePage.prototype.projectIn = function () {
     $(".btn-primary").click(function () {
-        var _this = this;
-        var contractMessage = "";
         var TEMP_HTML='';
-        var result = false;
         if (res.check(res.NAME_REG_EXP, $("#index_name input").val())) {
-            TEMP_HTML= "输入姓名有误！";
+            TEMP_HTML= "*姓名输入有误！";
+            $("#index_name p").html(TEMP_HTML);
         }else{
             TEMP_HTML = "";
+            $("#index_name p").html(TEMP_HTML);
         }
-        if (res.check(res.NAME_REG_EXP, $("#index_name input").val())) {
-            contractMessage = "输入姓名有误！";
-        }else if(res.check(res.PHONE_REG_EXP, $("#index_phone input").val())){
-            contractMessage = "输入手机号码有误！";
-        }else if(res.check(res.AREA_REG_EXP, $("#index_area input").val())){
-            contractMessage = "输入地产面积有误！";
-        }else if(res.check(res.CITY_REG_EXP, $("#index_city input").val())){
-            console.log($("#index_city input").val());
-            contractMessage = "输入所在城市有误！";
-        }else if(res.check(res.CITY_REG_EXP, $("#index_address input").val())){
-            console.log($("#index_address input").val());
-            contractMessage = "输入地产地址有误！";
-        } else {
-            result=true;
+
+        if (res.check(res.PHONE_REG_EXP, $("#index_phone input").val())) {
+            TEMP_HTML= "*手机号码输入有误！";
+            $("#index_phone p").html(TEMP_HTML);
+        }else{
+            TEMP_HTML = "";
+            $("#index_phone p").html(TEMP_HTML);
         }
-        // else if (regular.check(regular.MONEY_REG_EXP, params['CP_VAL'])) {
-        //     contractMessage = "金额输入不正确";
-        // } else if (params['PS_VAL'] == "") {
-        //     contractMessage = "请输入应支付日";
-        // } else {
-        //     result = true;
+
+        if (res.check(res.AREA_REG_EXP, $("#index_area input").val())) {
+            TEMP_HTML= "*地产面积输入有误！";
+            $("#index_area p").html(TEMP_HTML);
+        }else{
+            TEMP_HTML = "";
+            $("#index_area p").html(TEMP_HTML);
+        }
+
+        if (res.check(res.CITY_REG_EXP, $("#index_city input").val())) {
+            TEMP_HTML= "*所在城市输入有误！";
+            $("#index_city p").html(TEMP_HTML);
+        }else{
+            TEMP_HTML = "";
+            $("#index_city p").html(TEMP_HTML);
+        }
+
+        if (res.check(res.CITY_REG_EXP, $("#index_address input").val())) {
+            TEMP_HTML= "*地产地址输入有误！";
+            $("#index_address p").html(TEMP_HTML);
+        }else{
+            TEMP_HTML = "";
+            $("#index_address p").html(TEMP_HTML);
+        }
+
+        // if (res.check(res.COOP_REG_EXP, $("#index_cooperation input").val())) {
+        //     TEMP_HTML= "*合作内容输入有误！";
+        //     $("#index_cooperation p").html(TEMP_HTML);
+        // }else{
+        //     TEMP_HTML = "";
+        //
+        //   $("#index_cooperation p").html(TEMP_HTML);
         // }
-        if (result) {
-            console.log("success");
-            // var params = _this.getParams(_this.BAD);
-            // _this.ajaxRequestBillAdd(params);
-        } else {
-            console.log(contractMessage);
-            // messageBox.show('提示', contractMessage, MessageBoxButtons.OK, MessageBoxIcons.infomation);
-        }
+
     })
     return this;
 }
