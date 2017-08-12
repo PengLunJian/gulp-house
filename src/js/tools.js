@@ -71,3 +71,22 @@ Tools.prototype.setTargetElementTranslateX = function (params) {
     $(this.TARGET_ELEMENT).attr("style", translateX);
     return this;
 }
+
+function ComplexCustomOverlay() {
+    var arguments = arguments.length != 0 ? arguments[0] : arguments;
+    this.text = arguments['text'] ? arguments['text'] : '';
+    this.point = arguments['point'] ? arguments['point'] : null;
+    this.tag = $('<div class="bmap-tag"><p>' + this.text + '</p></div>');
+}
+ComplexCustomOverlay.prototype = new BMap.Overlay();
+
+ComplexCustomOverlay.prototype.initialize = function (map) {
+    this.map = map;
+    map.getPanes().labelPane.appendChild(this.tag[0]);
+    return this.tag[0];
+}
+ComplexCustomOverlay.prototype.draw = function () {
+    var pixel = this.map.pointToOverlayPixel(this.point);
+    this.tag.css("left", pixel.x - $('.bmap-tag').outerWidth() / 2 + "px");
+    this.tag.css("top", pixel.y - 70 + "px");
+}

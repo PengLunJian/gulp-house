@@ -148,7 +148,8 @@ var carousel = new Carousel();
  */
 function DetailPage() {
     var arguments = arguments.length != 0 ? arguments[0] : arguments;
-
+    this.BMAP = arguments['BMAP'] ? arguments['BMAP'] : new BMap.Map("BMap");
+    this.BMAP_ITEM = arguments['BMAP_ITEM'] ? arguments['BMAP_ITEM'] : '.bmap-item a';
     this.init();
 }
 /**
@@ -157,6 +158,19 @@ function DetailPage() {
  */
 DetailPage.prototype.init = function () {
     this.loadBaiduMap();
+    this.clickBmapItem();
+    return this;
+}
+
+DetailPage.prototype.clickBmapItem = function () {
+    var _this = this;
+    $(document).on("click", this.BMAP_ITEM, function () {
+        var text = $(this).next().text().trim();
+        _this.BMAP_LOCAL = new BMap.LocalSearch(_this.BMAP, {
+            renderOptions: {map: _this.BMAP, panel: "bmap-result"}
+        });
+        _this.BMAP_LOCAL.search(text);
+    });
     return this;
 }
 /**
@@ -164,16 +178,24 @@ DetailPage.prototype.init = function () {
  * @returns {DetailPage}
  */
 DetailPage.prototype.loadBaiduMap = function () {
+    var _this = this;
     var lng = 121.404351;
     var lat = 31.167261;
-    var map = new BMap.Map("BMap");
-    map.centerAndZoom(new BMap.Point(lng, lat), 11);
-    var local = new BMap.LocalSearch(map, {
-        renderOptions: {map: map, panel: "r-result"}
-    });
-    local.search("谷粒软件（徐汇区古美路1515号凤凰大厦19号楼1101室）");
+    var point = new BMap.Point(lng, lat);
+    this.BMAP.centerAndZoom(point, 11);
 
-    return this;
+    var myCompOverlay = new ComplexCustomOverlay({
+        point: point,
+        text: "谷粒软件（徐汇区古美路1515号凤凰大厦19号楼1101室）",
+    });
+    this.BMAP.addOverlay(myCompOverlay);
+    var marker = new BMap.Marker(point);
+    this.BMAP.addOverlay(marker);
+
+    this.BMAP_LOCAL = new BMap.LocalSearch(this.BMAP, {
+        renderOptions: {map: _this.BMAP, panel: "bmap-result"}
+    });
+    this.BMAP_LOCAL.search("地铁");
 }
 /**
  *
