@@ -54,11 +54,11 @@
           }
         }
       }
-      .order{
-        border:1px solid @green;
-        -webkit-border-radius:4px;
-        -moz-border-radius:4px;
-        border-radius:4px;
+      .order {
+        border: 1px solid @green;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
       }
     }
   }
@@ -189,6 +189,99 @@
 
 }
 
+#myModal {
+  //width: 500px;
+  //bottom: auto;
+  //right: auto;
+  //left: 50%;
+  //margin-left: -250px;
+  margin-top: 250px;
+  margin-bottom: auto;
+  overflow: visible;
+  .modal-content {
+    width: 500px;
+  }
+  h4 {
+    display: inline-block;
+  }
+  .modal-join {
+    color: #b8b8b8;
+  }
+  .modal-header {
+    .close {
+      width: 25px;
+      height: 25px;
+      margin-top: -2px;
+      background-color: @gray;
+      span {
+        font-size: 25px;
+        color: #fff;
+        font-weight: 100;
+      }
+    }
+  }
+  .modal-body {
+    width: 100%;
+    .model-item {
+      width: 85%;
+      padding-top: 20px;
+      text-align: right;
+      position: relative;
+      .model-label {
+        width: 70px !important;
+        text-align: right !important;
+        padding-right: 10px;
+        font-weight: bold;
+      }
+      input {
+        display: inline-block;
+        width: 260px;
+        line-height: 30px;
+      }
+      b {
+        position: absolute;
+        right:20px;
+        top: 34px;
+        font-szie:10px;
+        width: 0;
+        height: 0;
+        line-height: 0;
+        font-size: 0;
+        border-width: 6px;
+        border-style: solid;
+        border-color: @verifyCode transparent transparent transparent;
+      }
+    }
+    .model-verify {
+      position: relative;
+      a {
+        position: absolute;
+        right: 10px;
+        top: 30px;
+        width: 80px;
+        font-size: 14px;
+        color: @verifyCode;
+        height: 15px;
+        line-height: 15px;
+        border-left: 1px solid @verifyCode;
+      }
+    }
+  }
+  .modal-footer {
+    border-top: none;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    .btn-primary {
+      margin-left: 65px;
+      width: 260px;
+      line-height: 30px;
+      background-color: @green;
+      border-color: @green;
+    }
+  }
+}
+
 @keyframes mvslideAnime {
   0% {
     -webkit-transform: translate(0px);
@@ -241,5 +334,10 @@
     .glyphicon-chevron-right {
       margin-right: -88px !important;
     }
+  }
+
+  .modal-dialog {
+    //width: auto !important;
+    //margin:0 !important;
   }
 }

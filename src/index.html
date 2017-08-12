@@ -27,7 +27,7 @@
                         <a class="javascript:void(0);" target="_blank">优选项目</a>
                     </li>
                     <li class="nav-item">
-                        <a class="javascript:void(0);" target="_blank">公寓项目入驻</a>
+                        <a class="javascript:void(0);" target="_blank" data-toggle="modal" data-target="#myModal">公寓项目入驻</a>
                     </li>
                     <li class="nav-item">
                         <a class="javascript:void(0);" target="_blank">租客APP下载</a>
@@ -489,6 +489,48 @@
             <div class="footer-btm">
                 <p>Copyright@2016 apt.2ma2.cn 版权所有 沪ICP备05014259号</p>
                 <p>技术支持：<a href="javascript:void(0);"> 谷粒软件 - 谷粒家园 </a> 免责声明 沪公网安备 31011202001235号</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">公寓项目入驻</h4>
+                <span class="modal-join">（请留下您的联系方式,期待您的加盟)</span>
+            </div>
+            <div class="modal-body">
+                <div class="model-item model-name" id="index_name">
+                    <span class="model-label">您的姓名</span>
+                    <input class="form-control" type="text" placeholder="请输入您的姓名">
+                </div>
+                <div class="model-item" id="index_phone">
+                    <span class="model-label">联系电话</span>
+                    <input class="form-control" type="text" placeholder="请输入您的联系电话">
+                </div>
+                <div class="model-item" id="index_area">
+                    <span class="model-label">地产面积</span>
+                    <input class="form-control" type="text" placeholder="请输入您的地产面积"><b>㎡</b>
+                </div>
+                <div class="model-item" id="index_city">
+                    <span class="model-label">所在城市</span>
+                    <input class="form-control" type="text" placeholder="请输入您的地产所在城市名">
+                </div>
+                <div class="model-item" id="index_address">
+                    <span class="model-label">地产地址</span>
+                    <input class="form-control" type="text" placeholder="请输入您的地产详细地址">
+                </div>
+                <div class="model-item modal-cooperation" id="index_company">
+                    <span class="model-label">合作内容</span>
+                    <textarea class= "form-control" placeholder="请输入您要合作的内容"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">确认提交</button>
             </div>
         </div>
     </div>
