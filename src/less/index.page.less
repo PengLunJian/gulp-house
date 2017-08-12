@@ -391,6 +391,86 @@
   }
 }
 
+#myModal {
+  width: 500px;
+  bottom: auto;
+  right: auto;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: 250px;
+  margin-bottom: auto;
+  overflow: visible;
+  .modal-content{
+    width:500px;
+  }
+  h4 {
+    display: inline-block;
+  }
+
+  .modal-join {
+    color: #b8b8b8;
+  }
+  .modal-header{
+    .close{
+      width: 25px;
+      height: 25px;
+      margin-top: -2px;
+      background-color: @gray;
+      span{
+        font-size:25px;
+        color:#fff;
+        font-weight: 100;
+      }
+    }
+  }
+  .modal-body {
+    width:100%;
+    .model-item {
+      padding-top: 20px;
+      text-align: center;
+      position: relative;
+      .model-label{
+        padding-right: 10px;
+        font-weight: bold;
+      }
+      input {
+        display: inline-block;
+        width:260px;
+        line-height: 30px;
+      }
+      b{
+        position: absolute;
+        right: 50px;
+        top: 27px;
+      }
+    }
+    .modal-cooperation{
+      .model-label{
+        position: relative;
+        bottom: 50px;
+      }
+      textarea{
+        display: inline-block;
+        width:260px;
+        height:70px;
+      }
+    }
+  }
+  .modal-footer{
+    border-top:none;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    .btn-primary{
+      margin-left: 70px;
+      width: 260px;
+      line-height: 30px;
+      background-color: @green;
+      border-color:@green;
+    }
+  }
+}
+
 @keyframes mvslideAnime {
   0% {
     -webkit-transform: translate(0px);
@@ -419,5 +499,13 @@
     .banner-info {
       padding: 200px 0px !important;
     }
+  }
+}
+
+
+@media (min-width: 768px){
+  .modal-dialog {
+    width: auto;
+    margin:0;
   }
 }

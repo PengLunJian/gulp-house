@@ -23,7 +23,7 @@ var path = {
         JS: 'src/js/*.js',
         HTML: 'src/*.html',
         FONT: 'src/fonts/*',
-        LESS: 'src/less/*.less',
+        LESS: ['src/less/*.less','!variable.less'],
         ICONFONT: 'src/iconfont/*',
         IMAGES: 'src/images/*.{png,jpg,gif,ico}',
     },
@@ -213,9 +213,9 @@ gulp.task('test', function (done) {
         'build_less', 'build_js',
         'build_html', 'build_rev_css',
         'build_rev_js', 'build_rev_html',
-        'build_replace_html', 'font',
+        'build_replace_html', 'font', 'rev_font',
         // 'rev_image', 'min_image',
-        'rev_font', 'iconfont', 'rev_iconfont',
+        'iconfont', 'rev_iconfont',
         done);
 });
 

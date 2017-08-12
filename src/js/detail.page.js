@@ -183,7 +183,6 @@ DetailPage.prototype.loadBaiduMap = function () {
     var lat = 31.167261;
     var point = new BMap.Point(lng, lat);
     this.BMAP.centerAndZoom(point, 11);
-
     var myCompOverlay = new ComplexCustomOverlay({
         point: point,
         text: "谷粒软件（徐汇区古美路1515号凤凰大厦19号楼1101室）",
@@ -196,6 +195,37 @@ DetailPage.prototype.loadBaiduMap = function () {
         renderOptions: {map: _this.BMAP, panel: "bmap-result"}
     });
     this.BMAP_LOCAL.search("地铁");
+}
+/**
+ *
+ * @constructor
+ */
+function ComplexCustomOverlay() {
+    var arguments = arguments.length != 0 ? arguments[0] : arguments;
+    this.text = arguments['text'] ? arguments['text'] : '';
+    this.point = arguments['point'] ? arguments['point'] : null;
+    this.tag = $('<div class="bmap-tag"><p>' + this.text + '</p></div>');
+}
+ComplexCustomOverlay.prototype = new BMap.Overlay();
+/**
+ *
+ * @param map
+ * @returns {*}
+ */
+ComplexCustomOverlay.prototype.initialize = function (map) {
+    this.map = map;
+    map.getPanes().labelPane.appendChild(this.tag[0]);
+    return this.tag[0];
+}
+/**
+ *
+ * @returns {ComplexCustomOverlay}
+ */
+ComplexCustomOverlay.prototype.draw = function () {
+    var pixel = this.map.pointToOverlayPixel(this.point);
+    this.tag.css("left", pixel.x - $('.bmap-tag').outerWidth() / 2 + "px");
+    this.tag.css("top", pixel.y - 70 + "px");
+    return this;
 }
 /**
  *

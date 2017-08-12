@@ -62,11 +62,11 @@ body {
 a {
   display: block;
   color: @black;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0px;
+  margin: 0px !important;
   font-weight: bold;
 }
 
@@ -83,6 +83,7 @@ select {
 
 input, textarea {
   border: none;
+  resize: none;
   -webkit-appearance: none;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

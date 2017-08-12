@@ -16,21 +16,21 @@
     <div id="header">
         <div class="header">
             <div class="pull-left">
-                <h1 class="header-title">天琚置业</h1>
+                <h1 class="header-title">番茄公寓</h1>
             </div>
             <div class="pull-right">
                 <ul class="nav-bar clearfix">
+                    <li class="nav-item">
+                        <a href="index.html">首页</a>
+                    </li>
                     <li class="nav-item active">
-                        <a class="javascript:void(0);" target="_blank">首页</a>
+                        <a href="project.html">优选项目</a>
                     </li>
                     <li class="nav-item">
-                        <a class="javascript:void(0);" target="_blank">优选项目</a>
+                        <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal">公寓项目入驻</a>
                     </li>
                     <li class="nav-item">
-                        <a class="javascript:void(0);" target="_blank">公寓项目入驻</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="javascript:void(0);" target="_blank">租客APP下载</a>
+                        <a href="javascript:void(0);">租客APP下载</a>
                     </li>
                 </ul>
             </div>
@@ -191,7 +191,7 @@
                             </div>
                             <div class="bmap-body">
                                 <ul class="bmap-list row">
-                                    <li class="bmap-item">
+                                    <li class="bmap-item active">
                                         <a href="javascript:void(0);"></a>
                                         <span>地铁</span>
                                     </li>
@@ -249,22 +249,19 @@
                 <div class="footer-link">
                     <ul class="link-block clearfix">
                         <li class="link-item">
-                            <a href="javascript:void(0);" target="_blank">首页</a>
+                            <a href="index.html">首页</a>
                         </li>
                         <li class="link-item">
-                            <a href="javascript:void(0);" target="_blank">公寓</a>
+                            <a href="project.html">优选项目</a>
                         </li>
                         <li class="link-item">
-                            <a href="javascript:void(0);" target="_blank">业务范围</a>
+                            <a href="about.html">关于我们</a>
                         </li>
                         <li class="link-item">
-                            <a href="javascript:void(0);" target="_blank">关于我们</a>
+                            <a href="about.html">联系我们</a>
                         </li>
                         <li class="link-item">
-                            <a href="javascript:void(0);" target="_blank">联系我们</a>
-                        </li>
-                        <li class="link-item">
-                            <a href="javascript:void(0);" target="_blank">加入我们</a>
+                            <a href="about.html">加入我们</a>
                         </li>
                     </ul>
                     <p>客服邮箱：service@vlinker.com.cn</p>
@@ -278,6 +275,47 @@
             <div class="footer-btm">
                 <p>Copyright@2016 apt.2ma2.cn 版权所有 沪ICP备05014259号</p>
                 <p>技术支持：<a href="javascript:void(0);"> 谷粒软件 - 谷粒家园 </a> 免责声明 沪公网安备 31011202001235号</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">公寓项目入驻</h4>
+                <span class="modal-join">（请留下您的联系方式,期待您的加盟)</span>
+            </div>
+            <div class="modal-body">
+                <div class="model-item model-name" id="index_name">
+                    <span class="model-label">您的姓名</span>
+                    <input class="form-control" type="text" placeholder="请输入您的姓名">
+                </div>
+                <div class="model-item" id="index_phone">
+                    <span class="model-label">联系电话</span>
+                    <input class="form-control" type="text" placeholder="请输入您的联系电话">
+                </div>
+                <div class="model-item" id="index_area">
+                    <span class="model-label">地产面积</span>
+                    <input class="form-control" type="text" placeholder="请输入您的地产面积"><b>㎡</b>
+                </div>
+                <div class="model-item" id="index_city">
+                    <span class="model-label">所在城市</span>
+                    <input class="form-control" type="text" placeholder="请输入您的地产所在城市名">
+                </div>
+                <div class="model-item" id="index_address">
+                    <span class="model-label">地产地址</span>
+                    <input class="form-control" type="text" placeholder="请输入您的地产详细地址">
+                </div>
+                <div class="model-item modal-cooperation" id="index_company">
+                    <span class="model-label">合作内容</span>
+                    <textarea class= "form-control" placeholder="请输入您要合作的内容"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">确认提交</button>
             </div>
         </div>
     </div>

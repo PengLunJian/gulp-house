@@ -221,7 +221,7 @@
       font-size: 16px;
       line-height: 20px;
       padding-left: 12px;
-      margin-bottom: 30px;
+      margin-bottom: 30px !important;
       border-left: 2px solid @green;
     }
     .detail-item {
@@ -338,6 +338,16 @@
         &:nth-child(1) a {
           background-position: -79px -5px;
           &:hover {
+            background-position: -79px -45px;
+          }
+        }
+        &.active {
+          a {
+            border-color: @green;
+            background-color: @green;
+            -webkit-box-shadow: 1px 1px 5px @green;
+            -moz-box-shadow: 1px 1px 5px @green;
+            box-shadow: 1px 1px 5px @green;
             background-position: -79px -45px;
           }
         }

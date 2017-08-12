@@ -10,7 +10,6 @@ function SliderBanner() {
     this.sliderIndex = arguments['sliderIndex'] ? arguments['sliderIndex'] : 0;
     this.sliderTimer = arguments['sliderTimer'] ? arguments['sliderTimer'] : null;
     this.sliderElement = arguments['sliderElement'] ? arguments['sliderElement'] : '.banner-slider';
-
     this.sliderChange = arguments['sliderChange'] ? arguments['sliderChange'] : function () {
 
     }
@@ -86,11 +85,14 @@ HomePage.prototype.init = function () {
     var tools = new Tools({
         TAB_BTN: '.tab-btn',
         TAB_BAR: '.tab-bar',
-        TARGET_ELEMENT: '.project-block'
+        TARGET_ELEMENT: '.project-block',
+        TAB_CHANGED: function () {
+            console.log('success');
+        }
     });
 
     // this.scrollMove();
-
+    this.projectIn();
     return this;
 }
 /**
@@ -106,6 +108,56 @@ HomePage.prototype.scrollMove = function () {
         var backgroundColor = "background-color:rgba(0,0,0," + _this.HEADER_ALPHA * rate + ");";
         $(_this.HEADER).attr("style", backgroundColor);
     });
+    return this;
+}
+
+/**
+ * Author:liyong
+ * Date:2017-8-12
+ * @returns {HomePage}
+ */
+HomePage.prototype.projectIn = function () {
+    $(".btn-primary").click(function () {
+        var _this = this;
+        var contractMessage = "";
+        var TEMP_HTML='';
+        var result = false;
+        if (res.check(res.NAME_REG_EXP, $("#index_name input").val())) {
+            TEMP_HTML= "输入姓名有误！";
+        }else{
+            TEMP_HTML = "";
+        }
+        if (res.check(res.NAME_REG_EXP, $("#index_name input").val())) {
+            contractMessage = "输入姓名有误！";
+        }else if(res.check(res.PHONE_REG_EXP, $("#index_phone input").val())){
+            contractMessage = "输入手机号码有误！";
+        }else if(res.check(res.AREA_REG_EXP, $("#index_area input").val())){
+            contractMessage = "输入地产面积有误！";
+        }else if(res.check(res.CITY_REG_EXP, $("#index_city input").val())){
+            console.log($("#index_city input").val());
+            contractMessage = "输入所在城市有误！";
+        }else if(res.check(res.CITY_REG_EXP, $("#index_address input").val())){
+            console.log($("#index_address input").val());
+            contractMessage = "输入地产地址有误！";
+        } else {
+            result=true;
+        }
+        // else if (regular.check(regular.MONEY_REG_EXP, params['CP_VAL'])) {
+        //     contractMessage = "金额输入不正确";
+        // } else if (params['PS_VAL'] == "") {
+        //     contractMessage = "请输入应支付日";
+        // } else {
+        //     result = true;
+        // }
+        if (result) {
+            console.log("success");
+            // var params = _this.getParams(_this.BAD);
+            // _this.ajaxRequestBillAdd(params);
+        } else {
+            console.log(contractMessage);
+            // messageBox.show('提示', contractMessage, MessageBoxButtons.OK, MessageBoxIcons.infomation);
+        }
+    })
     return this;
 }
 /**
